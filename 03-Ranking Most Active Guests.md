@@ -23,21 +23,16 @@ Present your results in a clear format, showing the rank, guest identifier, and 
 ## 💻 SQL Solution
 
 ```sql
-WITH rnk_salaries AS (
-select 
-    id,
-    first_name,
-    last_name,
-    department_id,
-    salary,
-    ROW_NUMBER() OVER(PARTITION BY id ORDER BY salary DESC) as rnk
-from ms_employee_salary
+WITH cte AS (
+SELECT 
+    id_guest,
+    SUM(n_messages) as sum_n_messages
+FROM airbnb_contacts
+GROUP BY id_guest
 )
-SELECT
-    id,
-    first_name,
-    last_name,
-    department_id,
-    salary
-FROM rnk_salaries 
-WHERE rnk = 1
+
+select 
+    DENSE_RANK() OVER(ORDER BY sum_n_messages DESC) AS ranking,
+    id_guest,
+    sum_n_messages
+from cte;
