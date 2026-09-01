@@ -15,6 +15,7 @@ Present your results in a clear format, showing the rank, guest identifier, and 
 ---
 ## 🧠 My Approach (Business Logic)
 1- Wrote CTE to get the total messages for each guest.
+
 2- From this CTE used 'DENSE_RANK()' to get the rank of the guests with the ability to have multiple guests with the same rank, and without skipping .
 
 ---
