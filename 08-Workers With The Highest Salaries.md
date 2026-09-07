@@ -1,7 +1,7 @@
 # Workers With The Highest Salaries
 
 
-**Difficulty:** 🟡 Medium
+**Difficulty:** 🟢 Easy
 
 **Topic:** Window Function
 
